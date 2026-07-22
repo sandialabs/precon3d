@@ -1,0 +1,11 @@
+[book]
+authors = ["Paul Chao"]
+language = "en"
+multilingual = false
+src = "docs/userguide/src"
+title = "User Guide"
+
+[build]
+build-dir = "docs/userguide/book"
+
+[preprocessor.cmdrun]
