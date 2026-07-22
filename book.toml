@@ -1,7 +1,6 @@
 [book]
 authors = ["Paul Chao"]
 language = "en"
-multilingual = false
 src = "docs/userguide/src"
 title = "User Guide"
 
