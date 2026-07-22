@@ -1,0 +1,190 @@
+Metadata-Version: 2.4
+Name: precon3d
+Version: 0.1.4
+Summary: (PRE)pare serial sectioning montage data for (RECON)struction in (3D)
+Author-email: Paul Chao <pchao@sandia.gov>
+Project-URL: UserGuide, http://3DmatChar.cee-gitlab.lan/robomet/precon3d/userguide
+Project-URL: Repository, https://cee-gitlab.sandia.gov/3DmatChar/robomet/precon3d/
+Requires-Python: <=3.12.1,>=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: czifile>=2019.7.2.1
+Requires-Dist: aicsimageio==4.14.0
+Requires-Dist: numpy==1.26.3
+Requires-Dist: scipy>=1.16.2
+Requires-Dist: scikit-image>=0.25.2
+Requires-Dist: Pillow>=11.3.0
+Requires-Dist: matplotlib>=3.10.6
+Requires-Dist: pyyaml>=6.0.2
+Requires-Dist: typer>=0.17.4
+Requires-Dist: rich>=14.1.0
+Requires-Dist: aicspylibczi==3.1.2
+Requires-Dist: napari>=0.6.4
+Requires-Dist: scikit-learn>=1.7.2
+Requires-Dist: pystackreg==0.2.8
+Requires-Dist: seaborn==0.12.2
+Provides-Extra: dev
+Requires-Dist: black; extra == "dev"
+Requires-Dist: flake8; extra == "dev"
+Requires-Dist: pdbp; extra == "dev"
+Requires-Dist: pytest==8.3.3; extra == "dev"
+Requires-Dist: pytest-cov==5.0.0; extra == "dev"
+Requires-Dist: pdoc; extra == "dev"
+Requires-Dist: ruff; extra == "dev"
+Dynamic: license-file
+
+# precon3d
+
+[![userguide][userguide_badge]](http://3DMatChar.cee-gitlab.lan/robomet/precon3d/userguide) [![api][api_badge]](http://3DMatChar.cee-gitlab.lan/robomet/precon3d/api) [![test-coverage][test-coverage_badge]](http://3DMatChar.cee-gitlab.lan/robomet/precon3d/htmlcov) [![lint][lint_badge]](https://cee-gitlab.sandia.gov/3DMatChar/robomet/precon3d/-/jobs/artifacts/main/raw/logs/lint.log?job=linting) [![version][version_badge]](https://cee-gitlab.sandia.gov/3DMatChar/robomet/precon3d/)
+
+[userguide_badge]: https://cee-gitlab.sandia.gov/3DMatChar/robomet/precon3d/-/jobs/artifacts/main/raw/badges/userguide.svg?job=pages
+[api_badge]: https://cee-gitlab.sandia.gov/3DMatChar/robomet/precon3d/-/jobs/artifacts/main/raw/badges/api.svg?job=pages
+[test-coverage_badge]: https://cee-gitlab.sandia.gov/3DMatChar/robomet/precon3d/-/jobs/artifacts/main/raw/badges/test-coverage.svg?job=pages
+[lint_badge]: https://cee-gitlab.sandia.gov/3DMatChar/robomet/precon3d/-/jobs/artifacts/main/raw/badges/lint.svg?job=linting
+[version_badge]: https://cee-gitlab.sandia.gov/3DMatChar/robomet/precon3d/-/jobs/artifacts/main/raw/badges/version.svg?job=version
+
+## Getting Started
+
+We offer command line interface (cli) access to each module's functionality.
+
+pchao TODO:
+
+- [x] migrate to mdbooks
+  - [ ] include dynamic cmd-run
+- [x] cli integration
+- [x] remove fiji dependency for stitcher.
+- [ ] remove aicsimageio dependency, use sinpler aicspylibczi.
+- [ ] refactor factory and attributes/parameters
+- [ ] test suite needs to be updated. (39%)
+  - [x] stitcher (84%)
+  - [x] stitcher_fiji (94%)
+  - [x] czi_info (94%) --- see example here for testing typer cli
+  - [ ] aligner (25%)
+  - [ ] cropper (0%)
+  - [ ] downscaler (0%)
+  - [ ] factory (7%)
+  - [ ] pol_prep (0%)
+  - [ ] resampler (26%)
+  - [ ] shading_correction (16%)
+  - [ ] p3d_file_utility (33%)
+  - [ ] p3d_image_utility (0%)
+  - [ ] p3d_viewer_utility (0%)
+- [ ] include example for quick start.
+
+## Installing this package as a developer (updated).
+
+1. Install [rust](https://rust-lang.org/tools/install/), we want to use `uv` (package manager), `mdbook` (documentation), and `mdbook-cmdrun` (dynamic documentation).
+
+- Disconnect from SRN to install rust.
+- run `cargo install uv`, `cargo install mdbook`, `cargo install mdbook-cmdrun` after rust is installed.
+- To use `uv`, `export UV_NATIVE_TLS=true`
+
+2. Create and activate virtual enviroment: `uv venv` (will default to a .venv directory).
+
+```
+source .venv/bin/activate       # for bash shell
+source .venv/bin/activate.csh   # for c shell
+source .venv/bin/activate.fish  # for fish shell
+.\.venv\Scripts\activate        # for powershell
+```
+
+3. Install module dependencies: `uv pip install -e .[dev]` (add `--trusted-host pypi.python.org --trusted-host pypi.org --trusted-host files.pythonhosted.org` if there are issues, also disconnect from SRN if there are errors).
+4. Verify installation was successful: `precon3d` should show:
+
+```
+
+        +-------------+
+       /             /|
+      /             / |
+     +-------------+  |    PRECON3D:
+     |   slice 1   |  |    (PRE)pare and re(CON)struct
+     |      2      |  |    serial sectioning montage data
+     |      3      |  |    into 3D volume 🧊
+     |     ...     |  +
+     |   slice n   | /
+     +-------------+/
+
+
+Usage: precon3d [MODULE] [COMMAND] [PARAMETERS]
+
+PRECON3D: (PRE)pare and re(CON)struct serial sectioning montage data into 3D volume 🧊
+
+ Module              Short help
+ czi_info            Access information about the CZI file.
+ shading_correction  Estimate shading correction from tiles
+ stitcher_fiji       Stitch TilesArrays from czi
+ stitcher            Stitch TileRegions from czi
+ pol_prep            Prepare polarized images
+ aligner             Image registration/alignment methods
+ cropper             Crop images to regions of interest
+ downscaler          Downscale images
+ resampler           Resample slices
+ utility             Utilities for file management
+
+```
+
+## Installing a package (depracated).
+
+- setup your git keys
+- install python to make sure you have a working version
+
+```bash
+python --version
+python3 --version
+python3 -m pip install --upgrade pip setuptools #global upgrade
+```
+
+- setup proxy stuff
+- create virtual environment
+
+```bash
+python3 -m venv .venv #make venv
+```
+
+- activate the environment
+
+```bash
+source .venv/bin/activate       # for bash shell
+source .venv/bin/activate.csh   # for c shell
+source .venv/bin/activate.fish  # for fish shell
+.\.venv\Scripts\activate        # for powershell
+```
+
+- install the package with pip
+
+```bash
+pip install -e .[dev]  # install in dev mode, with editable
+```
+
+## Package Notes
+
+- src structure: https://www.pyopensci.org/python-package-guide/package-structure-code/python-package-structure.html
+- test coverage
+
+```bash
+pytest --cov=src --cov-report=xml:coverage_reports/coverage.xml --cov-report=html:coverage_reports/htmlcov --cov-report=term tests/
+```
+
+- mdbook
+
+```sh
+mdbook serve ./docs/userguide/ --open # server view
+mdbook build ./docs/userguide/        # build the book
+```
+
+## Project layout
+
+    mkdocs.yml    # The configuration file.
+    docs/
+        index.md  # The documentation homepage.
+        ...       # Other markdown pages, images and other files.
+
+- api docs
+
+```bash
+env:
+  PROJECT_NAME: python_template
+echo "Project Name: $PROJECT_NAME"
+pdoc ./src/$PROJECT_NAME/  -o ./docs/api
+pdoc ./src/python_template/  -o ./docs/api
+```

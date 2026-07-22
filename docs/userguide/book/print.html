@@ -1,0 +1,503 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>User Guide</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-b2f83d1e.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-196a0b48.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">User Guide</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="user-guide-overview"><a class="header" href="#user-guide-overview">User Guide Overview</a></h1>
+<p>December 1, 2025<br>Paul Chao, <a href="mailto:pchao@sandia.gov">pchao@sandia.gov</a></p>
+<p>Welcome to the User Guide for the <code>precon3d</code> package! This guide provides comprehensive information on how to utilize the package for transforming mechanical serial sectioning data into valuable volumetric information. Below is an index of the chapters included in this guide, along with a brief overview of each section.</p>
+<h2 id="getting-started"><a class="header" href="#getting-started">Getting Started</a></h2>
+<p>Use the <a href="#quickstart">Quickstart</a> to set up <code>precon3d</code> and begin data processing.</p>
+<p>The links in the table of contents navigate to each chapter that will provide detailed information, examples, and references to help you effectively utilize the package for your research needs.</p>
+<p>For further assistance or inquiries, please refer to the documentation or contact the support team.</p>
+<h2 id="table-of-contents"><a class="header" href="#table-of-contents">Table of Contents</a></h2>
+<ol>
+<li>
+<p><a href="#background">Background</a></p>
+<ul>
+<li>Understand the process of mechanical serial sectioning and how it relates to the creation of high resolution 3D volumes.</li>
+</ul>
+</li>
+<li>
+<p><a href="#tiles">Tiles</a></p>
+<ul>
+<li>Learn about the concept of tiles, how they can be extracted from CZI files, and their significance in managing large imaging datasets.</li>
+</ul>
+</li>
+<li>
+<p><a href="#mosaic">Mosaic</a></p>
+<ul>
+<li>Discover how mosaics are formed from tiles, the importance of tile alignment, and creating large montages.</li>
+</ul>
+</li>
+<li>
+<p><a href="#image-alignmentregistration">Image Alignment/Registration</a></p>
+<ul>
+<li>Explore the techniques for aligning consecutive slices using translational transforms.</li>
+</ul>
+</li>
+<li>
+<p><a href="#polarized-image-data">Polarized Image Data</a></p>
+<ul>
+<li>Read about the modifications made to collect polarized images at 15° increments, and the significance of this data.</li>
+</ul>
+</li>
+<li>
+<p><a href="#resample">Resample</a></p>
+<ul>
+<li>Understand the process of resampling data for even spacing and its importance in data analysis.</li>
+</ul>
+</li>
+<li>
+<p><a href="#downscale">Downscale</a></p>
+<ul>
+<li>Learn about the downscaling process, its impact on image resolution, and the importance of isotropic voxels in volumetric data.</li>
+</ul>
+</li>
+<li>
+<p><a href="chapters/8_conclusion.html">Conclusion</a></p>
+<ul>
+<li>Review the capabilities of the <code>precon3d</code> package and its goal of leveraging open-source Python libraries for data reconstruction.</li>
+</ul>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="quickstart"><a class="header" href="#quickstart">Quickstart</a></h1>
+<p>After installing precon3d into your local python enviroment (either clone through git or use pip), follow the instructions below to begin processing data.</p>
+<!-- cmdrun -0 echo hello world -->
+<!-- cmdrun precon3d --help -->
+<!-- cmdrun cat pyproject.toml -->
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>Using Fiji (Fiji Is Just ImageJ):
+Some configuration files will have an entry for your Fiji app (when a Fiji subroutine is used). For Windows, use the path to fiji.exe and for Macs, use the path to the Fiji.app/fiji.</p>
+</blockquote>
+<p>The outline below will give you the general steps for preparing a 3D reconstuction of your serial sectioning data.</p>
+<ol>
+<li>Turn the <code>.czi</code> image data into stitched mosiacs. See <code>precon3d stitcher --help</code></li>
+<li>Pad these images and downscale them so they are easier to view and manage. See <code>precon3d post_stitch --help</code> and <code>precon3d downscaler --help</code></li>
+<li>Align the downscaled images. See <code>precon3d aligner --help</code></li>
+</ol>
+<blockquote class="blockquote-tag blockquote-tag-tip">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p>There are useful file management utilites available through <code>precon3d utility --help</code></p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="background"><a class="header" href="#background">Background</a></h1>
+<p>At Sandia, we regularly use the RoboMet.3D tool to destructively characterize the internal structure of centimeter scale volumes. While the tool collects these large terabyte sized data, open-source software for data processing remain limited. Our goal is to provide a mature open-source package for data preparation and reconstruction using stable and well-maintained dependencies as much as possible.</p>
+<h2 id="mechanical-serial-sectioning"><a class="header" href="#mechanical-serial-sectioning">Mechanical Serial Sectioning</a></h2>
+<p>Mechanical serial sectioning is a technique used to create high-resolution images of multi-material samples by slicing them into thin sections. Each slice represents a cross-sectional view of the sample, allowing researchers to analyze its internal structures in detail.</p>
+<h3 id="process-overview"><a class="header" href="#process-overview">Process Overview</a></h3>
+<ol>
+<li>
+<p><strong>Slicing the Volume</strong>:
+The sample is mounted and mechanically polished to remove a thin slice of material. Each slice is typically a few micrometers thick, enabling the capture of fine details.</p>
+</li>
+<li>
+<p><strong>Image Acquisition</strong>:
+Each slice is usually imaged using a high-resolution optical microscope. The resulting images are often large mosaics that capture the entirety of the slice.</p>
+</li>
+<li>
+<p><strong>Mosaic Creation</strong>:
+The images obtained from each slice are often stitched together to form a complete mosaic. This mosaic represents the entire slice and contains numerous tiles, each corresponding to a specific region of the slice.</p>
+</li>
+</ol>
+<p>Mechanical serial sectioning is a powerful approach for detailed analysis of complex structures in 3D, enabling advancements in research and development. <code>precon3d</code> is a open-source python package for preparing and reconstructing the data from this unique method.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="tiles"><a class="header" href="#tiles">Tiles</a></h1>
+<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
+<p>Tiles are essential components in the analysis of large-scale imaging data, particularly in the context of microscopy. They represent smaller, manageable sections of a larger image or dataset, allowing for efficient processing and analysis. In this section, we will explore how tiles can be extracted from CZI files and the significance of TileRegions and TileArrays in defining these tiles during experiments.</p>
+<h2 id="extracting-tiles-from-czi-files"><a class="header" href="#extracting-tiles-from-czi-files">Extracting Tiles from CZI Files</a></h2>
+<p>CZI (Carl Zeiss Image) files are a common format used to store multi-dimensional imaging data.</p>
+<p>We rely on the <a href="https://allencellmodeling.github.io/aicspylibczi/index.html">PyLibCZI from Allen Institute for Cell Science (AICS)</a>, built on top of <a href="https://github.com/ZEISS/libczi">libCZI from Zeiss</a>.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Dimensions Defined in libCZI</th><th>Dimensions Added by AICS PyLibCZI</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>V</strong> - View</td><td><strong>M</strong> - Mosaic Tile (Mosaic Images Only)</td></tr>
+<tr><td><strong>H</strong> - Phase</td><td><strong>Y</strong> - Image Height</td></tr>
+<tr><td><strong>I</strong> - Illumination</td><td><strong>X</strong> - Image Width</td></tr>
+<tr><td><strong>S</strong> - Scene</td><td><strong>A</strong> - Samples</td></tr>
+<tr><td><strong>R</strong> - Rotation</td><td><strong>B</strong> - BGR/RGB Images Only</td></tr>
+<tr><td><strong>T</strong> - Time</td><td></td></tr>
+<tr><td><strong>C</strong> - Channel</td><td></td></tr>
+<tr><td><strong>Z</strong> - Z Plane (Height)</td><td></td></tr>
+</tbody>
+</table>
+</div>
+<p>In practice, the image data we are interested in from serial sectioning rely on the SCMYX structure.</p>
+<h3 id="tile-info"><a class="header" href="#tile-info">Table of CZI Tile Data Structure</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>TileRegion vs. TileArray</th><th>Dimensions</th></tr>
+</thead>
+<tbody>
+<tr><td>TileRegion, single channel, 4 individual tiles</td><td>[{‘X’: (0, 896), ‘Y’: (0, 896), ‘C’: (0, 1), ‘M’: (0, 4), ‘S’: (0, 1)}]</td></tr>
+<tr><td>TileArray, single channel, 32 individual tiles</td><td>[{‘X’: (0, 4512), ‘Y’: (0, 4512), ‘C’: (0, 1), ‘S’: (0, 32)}]</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="tileregions-and-tilearrays"><a class="header" href="#tileregions-and-tilearrays">TileRegions and TileArrays</a></h2>
+<p>During the experimental setup, tiles are defined in terms of TileRegions and TileArrays. The differ slightly in terms of definition and are determined during data collection. precon3d attempts to differentiate and automatically process either of these formats.</p>
+<h3 id="tileregion"><a class="header" href="#tileregion">TileRegion</a></h3>
+<p>A TileRegion uses a grid layout: Tiles are arranged in a rigid, rectangular grid format. In this case, the tile data in structured using the <strong>M</strong> mosaic tile dimension, see <a href="#tile-info">Table of CZI Tile Data Structure</a>.</p>
+<h3 id="tilearray"><a class="header" href="#tilearray">TileArray</a></h3>
+<p>A TileArray uses tile coordinates: The tile’s location in space is specified and doesn’t need to be a rigid, rectangular grid. In this case, the tile data in structured using the <strong>S</strong> scene dimension, see <a href="#tile-info">Table of CZI Tile Data Structure</a>.</p>
+<h2 id="shading-correction"><a class="header" href="#shading-correction">Shading Correction</a></h2>
+<p>In some cases a shading (aka background) correction is necessary.</p>
+<p><img src="assets/example_shading.png" alt="Example shading correction"></p>
+<p><em>Figure above is an example shading correction. (left) a smoothed result using <a href="https://github.com/marrlab/BaSiC">BaSiC</a>. (right) a background estimated with non-negative matrix factorization.</em></p>
+<p><img src="assets/shading_stitched.png" alt="Stitched with and without shading correction"></p>
+<p><em>Figure above is a stitched mosaic <em>without</em> shading correction applied to tiles (left) vs. a stitched mosaic <em>with</em> shading correction applied to tiles (right). The sample shown here is an Additive Mannufactured Titanium alloy imaged with Polarized Light Microscopy.</em></p>
+<h2 id="conclusion"><a class="header" href="#conclusion">Conclusion</a></h2>
+<p>Tiles play a crucial role in managing large imaging datasets. By extracting tiles from CZI files and understanding the concepts of TileRegions and TileArrays, the next section <a href="#mosaic">Mosaics</a> will build on these ideas.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="mosaic"><a class="header" href="#mosaic">Mosaic</a></h1>
+<h2 id="overview-1"><a class="header" href="#overview-1">Overview</a></h2>
+<p>The mosaic is the collection of <a href="#tiles">Tiles</a> that together form a comprehensive representation of a larger image or dataset. Each tile contributes to the overall mosaic, allowing for detailed analysis of a specific region of interest.</p>
+<h3 id="tile-alignment"><a class="header" href="#tile-alignment">Tile Alignment</a></h3>
+<p>To create a seamless mosaic, the tiles must be accurately aligned. This alignment process typically utilizes the overlap between adjacent tiles, which is usually around 30% at the edges of the images. This overlap ensures that there is sufficient information to accurately stitch the tiles together, minimizing gaps and misalignments in the final mosaic. We found Preibisch’s <a href="https://imagej.net/plugins/grid-collection-stitching">Grid Stitch Plugin for ImageJ</a> <sup class="footnote-reference" id="fr-note-1"><a href="#footnote-note">1</a></sup> performs well. We made some modification to run the plugin either as a python subprocess or run the pariwise registration in python.</p>
+<p>The below example from an alpha Ti7Al alloy images with Polarized Light Microscopy illustrates this concept. This mosaic is composed of 20 individual tiles (4 rows by 5 columns).</p>
+<p><img src="assets/stitch_orig.png" alt="Stitched tiles, original">{#stitched-tiles}
+<em>Mosaic with original positions. The tiles placed in a mosaic with the original tile positions recorded by the stage during image. Note the regions of overlap are blurred since each tile is misaligned with respect to its neighboring tile.</em></p>
+<p><img src="assets/stitch_positioned.png" alt="Stitched tiles, positioned">{#stitched-tiles}
+<em>Mosaic with corrected positions. The tiles placed in a mosaic with updated tile positions after stitching alignment. Note there is no blurring between indivdual tiles.</em></p>
+<p><img src="assets/stitch_final.png" alt="Stitched tiles, blended">{#stitched-tiles}</p>
+<p><em>Mosaic with blended with corrected positions. The tiles have been blended at the edges for seamless mosaic with no edge artifacts from the indivual tiles.</em></p>
+<h2 id="stitcher"><a class="header" href="#stitcher">Stitcher</a></h2>
+<p><strong>stitcher</strong> handles the operation of aligning a set of overlapping tiles into a large montage. The stitcher performs the following functions shown in the <a href="#stitched-tiles">figure above</a>:</p>
+<ol>
+<li>
+<p><strong>Image Stitching</strong>:
+The stitcher identifies corresponding features in overlapping tiles to determine their alignment. This process involves computing phase correlation. If this fails, it is often due to inadequate overlap or a lack of matching features of interest in the images.</p>
+</li>
+<li>
+<p><strong>Blending</strong>:
+Once the tiles are stitched, the edges must be blended with their neighbors to create a smooth transition. The intensity in the overlapping areas is gradually adjusted between the two images. This process helps eliminate visible seams and artifacts that may arise from the stitching.</p>
+</li>
+</ol>
+<p>By effectively managing the alignment and blending of tiles, <code>stitcher</code> plays a vital role in producing high-quality mosaics that accurately represent the underlying data.</p>
+<h3 id="references"><a class="header" href="#references">References</a></h3>
+<hr>
+<ol class="footnote-definition">
+<li id="footnote-note">
+<p>Preibisch, S., Saalfeld, S., &amp; Tomancak, P. (2009). Globally optimal stitching of tiled 3D microscopic image acquisitions. <em>Bioinformatics</em>, 25(11), 1463–1465. <a href="https://doi.org/10.1093/bioinformatics/btp184">doi:10.1093/bioinformatics/btp184</a> <a href="#fr-note-1">↩</a></p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="image-alignmentregistration"><a class="header" href="#image-alignmentregistration">Image Alignment/Registration</a></h1>
+<h2 id="overview-2"><a class="header" href="#overview-2">Overview</a></h2>
+<p>Image alignment, also known as image registration, is a critical process in the analysis of multi-slice imaging data. It involves aligning consecutive slices of a specimen to ensure that they accurately represent the same spatial coordinates. This alignment is essential for creating a coherent three-dimensional representation of the specimen and for enabling accurate comparisons between slices.</p>
+<h3 id="importance-of-image-alignment"><a class="header" href="#importance-of-image-alignment">Importance of Image Alignment</a></h3>
+<p>Proper alignment of consecutive slices is crucial for several reasons:</p>
+<ul>
+<li><strong>Consistency</strong>: Ensures that features observed in one slice correspond to the same features in adjacent slices, allowing for accurate interpretation of the data.</li>
+<li><strong>3D Reconstruction</strong>: Facilitates the creation of three-dimensional models from two-dimensional slices, enhancing the understanding of the specimen’s structure.</li>
+<li><strong>Quantitative Analysis</strong>: Enables reliable quantitative measurements across slices, such as volume calculations or density assessments.</li>
+</ul>
+<h2 id="alignment-techniques"><a class="header" href="#alignment-techniques">Alignment Techniques</a></h2>
+<p>For aligning consecutive slices, we will focus on translational transforms and provide three effective options:</p>
+<ol>
+<li>
+<p><strong>Fiji’s TurboReg</strong>:
+TurboReg is a plugin for the Fiji image processing software that allows for fast and accurate registration of images. It uses a translational transform to align images based on their overlapping regions, making it suitable for aligning consecutive slices with minimal computational overhead.</p>
+</li>
+<li>
+<p><strong>PhaseCorr</strong>:
+PhaseCorr is a method that utilizes phase correlation to achieve image registration. It is particularly effective for aligning images that may have slight translations. This technique works in the frequency domain, allowing for robust alignment even in the presence of noise or varying illumination.</p>
+</li>
+<li>
+<p><strong>Feature-Based SIFT</strong>:
+The Scale-Invariant Feature Transform (SIFT) is a feature-based method that detects and describes local features in images. By identifying key points and their descriptors, SIFT can align consecutive slices based on the spatial relationships of these features. Although it is more computationally intensive than the other methods, it can provide high accuracy in challenging alignment scenarios.</p>
+</li>
+</ol>
+<h2 id="process-of-image-alignment"><a class="header" href="#process-of-image-alignment">Process of Image Alignment</a></h2>
+<p>The image alignment process involves the following steps:</p>
+<ol>
+<li>
+<p><strong>Preprocessing</strong>:
+Images may undergo preprocessing steps such as conversion to greyscale, noise reduction, contrast enhancement, or normalization to improve the quality of the alignment.</p>
+</li>
+<li>
+<p><strong>Selection of Alignment Method</strong>:
+Choose one of the three alignment methods (TurboReg, PhaseCorr, or SIFT) based on the specific requirements of the dataset and the expected transformations.</p>
+</li>
+<li>
+<p><strong>Application of Transformation</strong>:
+Apply the selected method to align the consecutive slices, ensuring that they are properly registered.</p>
+</li>
+<li>
+<p><strong>Validation</strong>:
+The alignment is validated by visually inspecting the registered images.</p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="polarized-image-data"><a class="header" href="#polarized-image-data">Polarized Image Data</a></h1>
+<p>In our research, we have modified our system to collect polarized images at 15° increments over a range from 0° to 180° (inclusive). This results in a total of 13 images, each representing a unique angle of polarization.</p>
+<p>The ability to capture polarized images is crucial for analyzing the structural and optical properties of materials. By examining how light interacts with the specimen at different angles, researchers can gain insights into its composition and characteristics.</p>
+<p>For more detailed information on the methodology and applications of polarized imaging, please refer to our publication<sup class="footnote-reference" id="fr-note-1-1"><a href="#footnote-note-1">1</a></sup>.</p>
+<h2 id="references-1"><a class="header" href="#references-1">References</a></h2>
+<hr>
+<ol class="footnote-definition">
+<li id="footnote-note-1">
+<p>Chao, Paul, Rhianna M. Oakley, and Andrew T. Polonsky. “Application of polarized light microscopy for 3d materials science.” (2024) <a href="https://doi.org/10.1093/mam/ozae044.132">DOI: 10.1093/mam/ozae044.132</a>. <a href="#fr-note-1-1">↩</a></p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="resample"><a class="header" href="#resample">Resample</a></h1>
+<p>Resampling is a crucial process in data analysis that involves adjusting the spacing of data points to achieve even distribution. This technique is particularly important when working with datasets that may have irregular spacing, as it allows for more consistent analysis and interpretation of the data.</p>
+<p>By resampling the data, the voxels can become are uniformly spaced, which can enhance the accuracy of subsequent 3D analyses and visualizations.</p>
+<p>For more details on the resampling methodology and its applications, please refer to the following publications:</p>
+<ul>
+<li><a href="https://doi.org/10.1007/s40192-025-00401-w">DOI: 10.1007/s40192-025-00401-w</a></li>
+<li><a href="http://www.doi.org/10.1109/LCSYS.2024.3514977">DOI: 10.1109/LCSYS.2024.3514977</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="downscale"><a class="header" href="#downscale">Downscale</a></h1>
+<p>Downscaling is the process of resizing images to reduce their resolution. This is often necessary when we need to match the in-plane image resolution to the slice thicknesses of the data. For example, if the original image resolution is 0.5 μm/pixel and the slice thickness is 5 μm, a downscale operation can be performed to decrease the resolution by a factor of 10, resulting in a new resolution of 5 μm/pixel.</p>
+<h3 id="importance-of-downscaling"><a class="header" href="#importance-of-downscaling">Importance of Downscaling</a></h3>
+<p>The downscaled volume of data will have isotropic (evenly shaped) voxels with a resolution of 5 μm/voxel (here, the in-plane resolution is adjusted to match the slice thickness). This isotropic resolution is crucial for accurate three-dimensional reconstructions and analyses, as it ensures that the dimensions of the voxels are uniform in all directions.</p>
+<p>It is important to note that during the downscaling process, we do not infill any data. As a result, the voxel resolution is inherently limited by the slice thickness. This means that while downscaling can help achieve a more uniform voxel shape, the quality and detail of the data may be constrained by the original slice thickness.</p>
+<p>By carefully managing the downscaling process, the datasets can be optimized for analysis while maintaining the integrity of the information contained within the images.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+
+    </div>
+    </body>
+</html>

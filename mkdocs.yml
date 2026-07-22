@@ -1,0 +1,80 @@
+site_name: PRECON3D
+repo_url: "https://cee-gitlab.sandia.gov/3DmatChar/robomet/precon3d"
+repo_name: "robomet/precon3d"
+copyright: "2025, Paul Chao"
+theme:
+  name: material
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: slate
+      primary: "#0076a9"
+      accent: "#0076a9"
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: default
+      primary: "#00add0" # Light blue color
+      accent: "#00add0" # Light blue color
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to light mode
+
+  logo: assets/logo.png
+  features:
+    - content.code.copy
+    - repo.stats
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.expand
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.code.annotate
+    - content.code.highlight
+    - content.code.fenced
+    - content.code.inline
+    - content.code.tabbed
+    - theme.toggle # Ensure this line is included
+
+# Page tree
+nav:
+  - 🏡 Home: index.md
+
+  - 📓 User Guide:
+      - Quickstart: chapters/quickstart.md
+      - Overview: chapters/1_background.md
+      - Tiles: chapters/2_tiles.md
+      - Mosaic: chapters/3_mosaic.md
+      - Align: chapters/4_align.md
+      - Polarized Light: chapters/5_plm.md
+      - Resample: chapters/6_resample.md
+      - Downscale: chapters/7_downscale.md
+      - Conclusion: chapters/8_conclusion.md
+
+markdown_extensions:
+  - admonition
+  - tables
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - pymdownx.highlight
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - md_in_html
+  - pymdownx.arithmatex:
+      generic: true
+  - toc:
+      toc_depth: 3
+# plugins:
+#   - search
+#   - git-revision-date-localized:
+#       type: datetime
+#       enable_creation_date: true

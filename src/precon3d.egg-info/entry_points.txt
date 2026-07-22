@@ -1,0 +1,2 @@
+[console_scripts]
+precon3d = precon3d.main:app
