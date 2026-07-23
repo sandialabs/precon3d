@@ -45,8 +45,8 @@ dev = [
 filterwarnings = ["ignore::DeprecationWarning:czifile.*"]
 
 [project.urls]
-UserGuide = "http://3DmatChar.cee-gitlab.lan/robomet/precon3d/userguide"
-Repository = "https://cee-gitlab.sandia.gov/3DmatChar/robomet/precon3d/"
+documentation = "https://sandialabs.github.io/precon3d/docs/userguide/book/index.html"
+repository = "https://github.com/sandialabs/precon3d"
 
 # CLI Entry Points
 [project.scripts]
