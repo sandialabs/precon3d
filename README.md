@@ -8,6 +8,6 @@
 [test-coverage_badge]: https://sandialabs.github.io/precon3d/badges/test-coverage.svg
 [lint_badge]: https://sandialabs.github.io/precon3d/badges/lint.svg
 
-## Getting Started
+## Getting Started 
 
 Installation instructions and tutorials can be found in the [User Guide](https://sandialabs.github.io/precon3d/docs/userguide/book/index.html).
